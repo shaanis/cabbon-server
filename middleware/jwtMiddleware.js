@@ -26,3 +26,6 @@ const jwtMiddleware = (req, res, next) => {
     return res.status(404).json("Authorization Failed: Token is empty");
   }
 };
+
+
+module.exports = jwtMiddleware

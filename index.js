@@ -5,12 +5,7 @@ const router = require('./routers/routes')
 require('./database/dbConnection')
 
 const cabbonServer = express()
-cabbonServer.use(cors({
-    origin: ['http://localhost:3000', 'https://cabbon-nine.vercel.app'], // include both local and deployed frontends
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-  }));
+cabbonServer.use(cors());
 cabbonServer.use(express.json())
 cabbonServer.use(router)
 
