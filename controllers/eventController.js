@@ -12,7 +12,7 @@ exports.addEventsController=async(req,res)=>{
                 name,time,finetime,place,userId,userToken
             })
             await newEvent.save()
-            const token = jwt.sign({eventId:newEvent._id},process.env.JWTPASSWORD)
+            // const token = jwt.sign({eventId:newEvent._id},process.env.JWTPASSWORD)
             res.status(200).json({event:newEvent,token})
             return
     } catch (e) {
