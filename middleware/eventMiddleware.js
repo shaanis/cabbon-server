@@ -6,7 +6,7 @@ const eventMiddleware= (req,res,next)=>{
     console.log(token);
     if(token!=""){
         try {
-            const jwtResponse = jwt.verify(token,process.env.JWTPASSWORD)
+            const jwtResponse = jwt.verify(token,process.env.EJWTPASS)
             console.log(jwtResponse);
             req.eventId = jwtResponse.eventId
             console.log(req.eventId);
