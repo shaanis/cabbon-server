@@ -12,7 +12,23 @@ exports.addEventsController=async(req,res)=>{
                 name,time,finetime,place,userId,userToken
             })
             await newEvent.save()
-            const token = jwt.sign({eventId:newEvent._id},process.env.JWTPassword)
+            const token = jwt.sign({eventId:newEvent._id},process.env.exports.addEventsController=async(req,res)=>{
+    console.log("inside addEVentsController");
+    const {name,time,finetime,place,userId}= req.body 
+    const userToken = req.userId
+    try {
+            const newEvent = new events({
+                name,time,finetime,place,userId,userToken
+            })
+            await newEvent.save()
+            const token = jwt.sign({eventId:newEvent._id},process.env.JWTPASSWORD)
+            res.status(200).json({event:newEvent,token})
+            return
+    } catch (e) {
+        res.status(401).json(e)
+    }
+     
+})
             res.status(200).json({event:newEvent,token})
             return
     } catch (e) {
@@ -20,6 +36,7 @@ exports.addEventsController=async(req,res)=>{
     }
      
 }
+
 
 exports.updateStatusController=async(req,res)=>{
     console.log("inside updateStatusController");
