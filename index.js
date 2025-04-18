@@ -5,10 +5,7 @@ const router = require('./routers/routes')
 require('./database/dbConnection')
 
 const cabbonServer = express()
-cabbonServer.use(cors({
-    origin: 'http://localhost:5173', // allow frontend dev server
-    credentials: true
-  }));
+cabbonServer.use(cors());
 cabbonServer.use(express.json())
 cabbonServer.use(router)
 
